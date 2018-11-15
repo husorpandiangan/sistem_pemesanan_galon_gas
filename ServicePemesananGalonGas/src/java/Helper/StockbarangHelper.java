@@ -22,7 +22,7 @@ public class StockbarangHelper {
     public List<Stockbarang> getAllLaporan(){
         List<Stockbarang> result = null;
         Session session = NewHibernateUtil.getSessionFactory().openSession();
-        String query = "from Pesanan p";
+        String query = "from Stockbarang s";
         Query q = session.createQuery(query);
         result = q.list();
         session.close();
