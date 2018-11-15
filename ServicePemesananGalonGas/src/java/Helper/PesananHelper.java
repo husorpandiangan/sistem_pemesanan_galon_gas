@@ -5,9 +5,11 @@
  */
 package Helper;
 
+import java.util.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import pojos.Laporan;
 import pojos.Pesanan;
 import util.NewHibernateUtil;
@@ -30,4 +32,25 @@ public class PesananHelper {
         session.close();
         return result;
     } 
+    
+
+    
+    public void addNewPesanan(
+            String idPemesanan,
+            String noKtp,
+            String nama,
+            String alamat,
+            String jenisPemesanan,
+            String jumlahBarang,
+            Date waktuAntar
+            
+            ){
+          
+         Session session = NewHibernateUtil.getSessionFactory().openSession();
+           Transaction tx = session.beginTransaction();
+           Pesanan Pesanan=new Pesanan(idPemesanan,noKtp,nama,alamat,jenisPemesanan,jumlahBarang,waktuAntar);
+           session.saveOrUpdate(Pesanan);
+           tx.commit();
+           session.close();
+    }
 }
