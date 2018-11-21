@@ -1,5 +1,5 @@
 package pojos;
-// Generated Nov 5, 2018 10:17:13 PM by Hibernate Tools 4.3.1
+// Generated Nov 22, 2018 12:36:04 AM by Hibernate Tools 4.3.1
 
 
 
@@ -9,15 +9,33 @@ package pojos;
 public class Stockbarang  implements java.io.Serializable {
 
 
+     private String idBarang;
+     private String namaBarang;
      private String jumlahStockBarang;
 
     public Stockbarang() {
     }
 
-    public Stockbarang(String jumlahStockBarang) {
+    public Stockbarang(String idBarang, String namaBarang, String jumlahStockBarang) {
+       this.idBarang = idBarang;
+       this.namaBarang = namaBarang;
        this.jumlahStockBarang = jumlahStockBarang;
     }
    
+    public String getIdBarang() {
+        return this.idBarang;
+    }
+    
+    public void setIdBarang(String idBarang) {
+        this.idBarang = idBarang;
+    }
+    public String getNamaBarang() {
+        return this.namaBarang;
+    }
+    
+    public void setNamaBarang(String namaBarang) {
+        this.namaBarang = namaBarang;
+    }
     public String getJumlahStockBarang() {
         return this.jumlahStockBarang;
     }

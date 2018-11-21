@@ -1,5 +1,5 @@
 package pojos;
-// Generated Nov 5, 2018 10:17:13 PM by Hibernate Tools 4.3.1
+// Generated Nov 22, 2018 12:36:04 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,21 +14,23 @@ public class Pesanan  implements java.io.Serializable {
      private String noKtp;
      private String nama;
      private String alamat;
-     private String jenisPemesanan;
+     private String namaBarang;
      private String jumlahBarang;
      private Date waktuAntar;
+     private String status;
 
     public Pesanan() {
     }
 
-    public Pesanan(String idPemesanan, String noKtp, String nama, String alamat, String jenisPemesanan, String jumlahBarang, Date waktuAntar) {
+    public Pesanan(String idPemesanan, String noKtp, String nama, String alamat, String namaBarang, String jumlahBarang, Date waktuAntar, String status) {
        this.idPemesanan = idPemesanan;
        this.noKtp = noKtp;
        this.nama = nama;
        this.alamat = alamat;
-       this.jenisPemesanan = jenisPemesanan;
+       this.namaBarang = namaBarang;
        this.jumlahBarang = jumlahBarang;
        this.waktuAntar = waktuAntar;
+       this.status = status;
     }
    
     public String getIdPemesanan() {
@@ -59,12 +61,12 @@ public class Pesanan  implements java.io.Serializable {
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
-    public String getJenisPemesanan() {
-        return this.jenisPemesanan;
+    public String getNamaBarang() {
+        return this.namaBarang;
     }
     
-    public void setJenisPemesanan(String jenisPemesanan) {
-        this.jenisPemesanan = jenisPemesanan;
+    public void setNamaBarang(String namaBarang) {
+        this.namaBarang = namaBarang;
     }
     public String getJumlahBarang() {
         return this.jumlahBarang;
@@ -79,6 +81,13 @@ public class Pesanan  implements java.io.Serializable {
     
     public void setWaktuAntar(Date waktuAntar) {
         this.waktuAntar = waktuAntar;
+    }
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 

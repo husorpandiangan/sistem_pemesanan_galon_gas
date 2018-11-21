@@ -41,8 +41,7 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="db165314083"/>
-  <table-filter match-name="proses"/>
-  <table-filter match-name="stockbarang"/>
-  <table-filter match-name="laporan"/>
   <table-filter match-name="pesanan"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="stockbarang"/>
 </hibernate-reverse-engineering>
