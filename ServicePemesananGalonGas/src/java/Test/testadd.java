@@ -18,15 +18,16 @@ public class testadd {
     public static void main(String[]args) throws ParseException{
         try{
             SimpleDateFormat format= new SimpleDateFormat("yyyyMMdd");
-            Date date=format.parse("19741231");
-            String idPemesanan="12654";
-            String noKtp="07653456";
-            String nama="Ahmat";
-            String alamat="Yogyakarta";
-            String jenisPemesanan="Gas";
+            Date date=format.parse("1974345");
+            String idPemesanan="12655";
+            String noKtp="07653458";
+            String nama="Ahmatt";
+            String alamat="papua";
+            String jenisPemesanan="Gas dan galon ";
             String jumlahBarang="4";
+            String status="Terkirim";
             PesananHelper helper =new PesananHelper();
-            helper.addNewPesanan(idPemesanan, noKtp, nama, alamat, jenisPemesanan, jumlahBarang, date);
+            helper.addNewPesanan(idPemesanan, noKtp, nama, alamat, jenisPemesanan, jumlahBarang, date,status);
     }catch(ParseException ex){
         
     }}
