@@ -5,6 +5,8 @@
  */
 package services;
 
+import Helper.UserHelper;
+import com.google.gson.Gson;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -12,6 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -50,4 +53,9 @@ public class PenjualResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
     }
-}
+    @GET
+    @Path("login")
+    @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+    public String getJson(@QueryParam("username") String username, @QueryParam("password") String password) {
+        return new Gson().toJson(new UserHelper().login(username, password));
+}}

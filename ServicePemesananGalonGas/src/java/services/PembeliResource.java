@@ -58,9 +58,6 @@ public class PembeliResource {
     public void putJson(String content) {
         
     }
-
-
-
 @POST
 @Path("addNewPesanan")
  @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
