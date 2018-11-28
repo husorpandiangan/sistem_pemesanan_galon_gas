@@ -48,25 +48,20 @@ public class UserHelper {
         
         return (User) query.uniqueResult();
     }
-}
+    
+    
+    public List<User> bacaSemuaUser() {
+        List<User> list = null;
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        Query q = session.createQuery("from User U");
+        list = q.list();
+        tx.commit();
+        session.close();
+        return list;
 
-//
-//    public User login(String username, String password) {
-//        User user = this.cariUser(username);
-//        if (user != null) {
-//            //user ada
-//            if (user.getPassword().equals(password)) {
-//                //password sama
-//                return user;
-//            } else {
-//                //password berbeda
-//                return null;
-//            }
-//        } else {
-//            return null;
-//        }
-//    }
-//}
+    }
+}
 
      
 

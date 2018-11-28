@@ -18,11 +18,11 @@ import util.NewHibernateUtil;
  * @author ASUS
  */
 public class PesananHelper {
-    
-     
+
     public PesananHelper() {
     }
-    public List<Pesanan> getAllLaporan(){
+
+    public List<Pesanan> getAllLaporan() {
         List<Pesanan> result = null;
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         String query = "from Pesanan p";
@@ -30,26 +30,23 @@ public class PesananHelper {
         result = q.list();
         session.close();
         return result;
-    } 
-    
+    }
 
-    
     public void addNewPesanan(
             String idPemesanan,
             String noKtp,
             String nama,
             String alamat,
-            String jenisPemesanan,
+            String namaBarang,
             String jumlahBarang,
             Date waktuAntar,
             String status
-            ){
-          
-         Session session = NewHibernateUtil.getSessionFactory().openSession();
-           Transaction tx = session.beginTransaction();
-           Pesanan Pesanan=new Pesanan(idPemesanan,noKtp,nama,alamat,jenisPemesanan,jumlahBarang,waktuAntar,status);
-           session.saveOrUpdate(Pesanan);
-           tx.commit();
-           session.close();
+    ) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        Pesanan pesanan = new Pesanan(idPemesanan, noKtp, nama, alamat, namaBarang, jumlahBarang, waktuAntar, status);
+        session.saveOrUpdate(pesanan);
+        tx.commit();
+        session.close();
     }
 }

@@ -15,21 +15,23 @@ import java.util.Date;
  * @author ASUS
  */
 public class testadd {
-    public static void main(String[]args) throws ParseException{
-        try{
-            SimpleDateFormat format= new SimpleDateFormat("yyyyMMdd");
-            Date date=format.parse("1974345");
-            String idPemesanan="12655";
-            String noKtp="07653458";
-            String nama="Ahmatt";
-            String alamat="papua";
-            String jenisPemesanan="Gas dan galon ";
-            String jumlahBarang="4";
-            String status="Terkirim";
-            PesananHelper helper =new PesananHelper();
-            helper.addNewPesanan(idPemesanan, noKtp, nama, alamat, jenisPemesanan, jumlahBarang, date,status);
-    }catch(ParseException ex){
-        
-    }}
-    
+
+    public static void main(String[] args) throws ParseException {
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+            Date date = format.parse("19740305");
+            String idPemesanan ="16502";
+            String noKtp ="07653458";
+            String nama = "jaya";
+            String alamat = "jayapura";
+            String jenisPemesanan = "Gas";
+            String jumlahBarang = "4";
+            String status = "Terkirim";
+            PesananHelper helper = new PesananHelper();
+            helper.addNewPesanan(idPemesanan, noKtp, nama, alamat, jenisPemesanan, jumlahBarang, date, status);
+        } catch (ParseException ex) {
+
+        }
+    }
+
 }

@@ -6,6 +6,7 @@
 package services;
 
 import Helper.PesananHelper;
+import Helper.UserHelper;
 import com.google.gson.Gson;
 import java.util.Date;
 import javax.ws.rs.core.Context;
@@ -42,12 +43,29 @@ public class PembeliResource {
      * Retrieves representation of an instance of services.PenjualResource
      * @return an instance of java.lang.String
      */
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    public Response getJson() {
+        PesananHelper u = new PesananHelper();
+        Gson gson = new Gson();
+        return Response.status(Response.Status.OK)
+                .entity(gson.toJson(u.getAllLaporan()))
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods",
+                        "GET,POST,HEAD,OPTIONS,PUT")
+                .header("Access-Control-Allow-Headers",
+                        "Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers")
+                .header("Access-Exposed-Headers",
+                        "Access-Control-Allow-Origin,Access-Control-Allow-Credentials")
+                .header("Access-Support-Credentials",
+                        "true")
+                .header("Access-Control-Max-Age", "20")
+                .header("Access-Preflight-Maxage", "20")
+                .build();
     }
+
+    
 
     /**
      * PUT method for updating or creating an instance of PenjualResource
