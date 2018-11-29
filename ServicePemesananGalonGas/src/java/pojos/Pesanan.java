@@ -1,5 +1,5 @@
 package pojos;
-// Generated Nov 22, 2018 12:36:04 AM by Hibernate Tools 4.3.1
+// Generated Nov 29, 2018 12:16:44 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -18,11 +18,12 @@ public class Pesanan  implements java.io.Serializable {
      private String jumlahBarang;
      private Date waktuAntar;
      private String status;
+     private int totalHarga;
 
     public Pesanan() {
     }
 
-    public Pesanan(String idPemesanan, String noKtp, String nama, String alamat, String namaBarang, String jumlahBarang, Date waktuAntar, String status) {
+    public Pesanan(String idPemesanan, String noKtp, String nama, String alamat, String namaBarang, String jumlahBarang, Date waktuAntar, String status, int totalHarga) {
        this.idPemesanan = idPemesanan;
        this.noKtp = noKtp;
        this.nama = nama;
@@ -31,6 +32,7 @@ public class Pesanan  implements java.io.Serializable {
        this.jumlahBarang = jumlahBarang;
        this.waktuAntar = waktuAntar;
        this.status = status;
+       this.totalHarga = totalHarga;
     }
    
     public String getIdPemesanan() {
@@ -88,6 +90,13 @@ public class Pesanan  implements java.io.Serializable {
     
     public void setStatus(String status) {
         this.status = status;
+    }
+    public int getTotalHarga() {
+        return this.totalHarga;
+    }
+    
+    public void setTotalHarga(int totalHarga) {
+        this.totalHarga = totalHarga;
     }
 
 

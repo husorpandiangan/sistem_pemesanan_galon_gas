@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 22, 2018 12:36:04 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 29, 2018 12:16:45 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="pojos.Pesanan" table="pesanan" catalog="db165314083" optimistic-lock="version">
         <id name="idPemesanan" type="string">
@@ -28,6 +28,9 @@
         </property>
         <property name="status" type="string">
             <column name="status" length="20" not-null="true" />
+        </property>
+        <property name="totalHarga" type="int">
+            <column name="totalHarga" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

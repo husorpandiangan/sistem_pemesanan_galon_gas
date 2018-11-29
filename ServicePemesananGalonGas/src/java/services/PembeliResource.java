@@ -90,7 +90,8 @@ public Response AddNewPasien(String data){
             pesan.getNamaBarang(),
             pesan.getJumlahBarang(),
             pesan.getWaktuAntar(),
-            pesan.getStatus());
+            pesan.getStatus(),
+            pesan.getTotalHarga());
     return Response.status(200).entity(pesan).build();    
     }
 }

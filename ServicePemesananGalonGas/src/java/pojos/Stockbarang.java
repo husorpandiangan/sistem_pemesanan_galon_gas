@@ -1,5 +1,5 @@
 package pojos;
-// Generated Nov 22, 2018 12:36:04 AM by Hibernate Tools 4.3.1
+// Generated Nov 29, 2018 12:16:44 PM by Hibernate Tools 4.3.1
 
 
 
@@ -11,15 +11,15 @@ public class Stockbarang  implements java.io.Serializable {
 
      private String idBarang;
      private String namaBarang;
-     private String jumlahStockBarang;
+     private int harga;
 
     public Stockbarang() {
     }
 
-    public Stockbarang(String idBarang, String namaBarang, String jumlahStockBarang) {
+    public Stockbarang(String idBarang, String namaBarang, int harga) {
        this.idBarang = idBarang;
        this.namaBarang = namaBarang;
-       this.jumlahStockBarang = jumlahStockBarang;
+       this.harga = harga;
     }
    
     public String getIdBarang() {
@@ -36,12 +36,12 @@ public class Stockbarang  implements java.io.Serializable {
     public void setNamaBarang(String namaBarang) {
         this.namaBarang = namaBarang;
     }
-    public String getJumlahStockBarang() {
-        return this.jumlahStockBarang;
+    public int getHarga() {
+        return this.harga;
     }
     
-    public void setJumlahStockBarang(String jumlahStockBarang) {
-        this.jumlahStockBarang = jumlahStockBarang;
+    public void setHarga(int harga) {
+        this.harga = harga;
     }
 
 

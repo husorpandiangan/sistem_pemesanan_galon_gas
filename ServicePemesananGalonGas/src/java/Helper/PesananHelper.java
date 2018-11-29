@@ -40,11 +40,20 @@ public class PesananHelper {
             String namaBarang,
             String jumlahBarang,
             Date waktuAntar,
-            String status
+            String status,
+            int totalHarga
     ) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Pesanan pesanan = new Pesanan(idPemesanan, noKtp, nama, alamat, namaBarang, jumlahBarang, waktuAntar, status);
+        Pesanan pesanan = new Pesanan(idPemesanan, 
+                noKtp, 
+                nama, 
+                alamat, 
+                namaBarang, 
+                jumlahBarang, 
+                waktuAntar, 
+                status, 
+                totalHarga);
         session.saveOrUpdate(pesanan);
         tx.commit();
         session.close();
