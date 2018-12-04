@@ -121,14 +121,14 @@
                             <tr>
                                 <td style="color: white">Waktu Antar</td>
                                 <td>:</td>
-                                <td><input type="time" name="waktuantar" value=""></td>
+                                <td><input type="date" name="waktuantar" value=""></td>
                             </tr>
                             <tr>
                                 <td style="color: white">Status</td>
                                 <td>:</td>
                                 <td><input type="text" name="status" value=""></td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td style="color: white">Total Harga</td>
                                 <td>:</td>
                                 <td><input type="text" name="totalHarga" value=""></td>
@@ -139,35 +139,37 @@
                                 <td><center><input type="submit" value="Pesan"></center></td>
                             </tr>
                         </table></form></center></section>
-             
-        
-        
-            <pre id="berhasil">
-             <script>
-                    function make_json(table) {
-                        var json = {
-                            "IDPemesanan": table.Id.value,
-                            "NoKTP": table.noKTP.value,
-                            "Nama": table.nama.value,
-                            "Alamat": table.alamat.value,
-                            "JenisPesanan": table.JenisPesanan.value,
-                            "JumlahPesanan": table.jumpesanan.value,
-                            "WaktuAntar": table.waktuantar.value,
-                            "Status": table.status.value
-                        };
-                        var html = JSON.stringify(json, 0, 100);
 
-                        var Url = "http://localhost:8084/ServicePemesananGalonGas/webresources/pembeli/addNewPesanan";
-                        var xhr = new XMLHttpRequest();
-                        xhr.open('POST', Url, false);
-                        xhr.setRequestHeader("Content-type", "application/json");
-                        xhr.send(html);
-                        document.getElementByIds("berhasil").innerHTML = "Pendaftaran Berhasil";
-                        return false;
-                    }
-                               </script>
-            </pre>
-            
+
+
+        <pre id="output">
+
+        </pre>
+        <script>
+            function make_json(table) {
+                var json = {
+                    "IDPemesanan": table.Id.value,
+                    "NoKTP": table.noKTP.value,
+                    "Nama": table.nama.value,
+                    "Alamat": table.alamat.value,
+                    "JenisPesanan": table.JenisPesanan.value,
+                    "JumlahPesanan": table.jumpesanan.value,
+                    "WaktuAntar": table.waktuantar.value,
+                    "Status": table.status.value
+                };
+                var html = JSON.stringify(json, 0, 100);
+
+                var Url = "http://localhost:8084/ServicePemesananGalonGas/webresources/pembeli/addNewPesanan";
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', Url, false);
+                xhr.setRequestHeader("Content-type", "application/json");
+                xhr.send(html);
+                document.getElementByIds("output").innerHTML = "Pendaftaran Berhasil";
+                return false;
+            }
+        </script>
+
+
         <section class="page-section cta">
             <div class="container">
                 <div class="row">
@@ -193,7 +195,7 @@
             </div>
         </footer>
 
-        
+
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
