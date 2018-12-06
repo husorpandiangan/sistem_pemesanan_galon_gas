@@ -142,14 +142,15 @@
                 <script>
                     function make_json(table) {
                         var json = {
-                            "IDPemesanan": table.Id.value,
-                            "NoKTP": table.noKTP.value,
-                            "Nama": table.nama.value,
-                            "Alamat": table.alamat.value,
-                            "JenisPesanan": table.JenisPesanan.value,
-                            "JumlahPesanan": table.jumpesanan.value,
-                            "WaktuAntar": table.waktuantar.value,
-                            "Status": table.status.value
+                            "idPemesanan": table.Id.value,
+                            "noKtp": table.noKTP.value,
+                            "nama": table.nama.value,
+                            "alamat": table.alamat.value,
+                            "namaBarang": table.JenisPesanan.value,
+                            "jumlahBarang": table.jumpesanan.value,
+                            "waktuAntar": table.waktuantar.value,
+                            "status": table.status.value,
+                            "totalHarga": table.totalHarga.value
                         };
 
                         var html = JSON.stringify(json, 0, 100);
@@ -158,7 +159,7 @@
                         xhr.open("POST", Url, false);
                         xhr.setRequestHeader("Content-type", "application/json");
                         xhr.send(html);
-                        document.getElementById("output").innerHTML = "Pesanan Berhasil";
+                        document.getElementById("output").innerHTML = html;
                         return false;
                     }
                 </script>
