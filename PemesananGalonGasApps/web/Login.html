@@ -76,11 +76,33 @@
                                 <td>:</td>
                                 <td><input type="text" id="a" placeholder="Password"></td>
                             </tr>
-                        </table><button type="button" onclick="loadDoc()">Login</button>
+                        </table><button type="button" onclick="loadDoc()">Login</button>            
+        </center>
+        <script>
+            function loadDoc() {
+                var username = b.value;
+                var password= a.value;
+               
+                var url = 'http://localhost:8084/ServicePemesananGalonGas/webresources/penjual?username=' + username + '&password=' + password;
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var user = JSON.parse(this.responseText);
+                        if(user !== null){ 
+                            window.open("Order.html", "_self");
+                        }else{
+                            alert("Login Gagal");
+                        }
+                      
+                        document.getElementById("demo").innerHTML =
+                                this.responseText;
+                    }
+                };
+                xhttp.open("GET", url, true);
+                xhttp.send();
+            }
             
-        
-
-        
+        </script>
         <section class="page-section clearfix">
             <div class="container">
                 <div class="intro">
