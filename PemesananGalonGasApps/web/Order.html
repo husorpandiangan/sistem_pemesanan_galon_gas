@@ -84,7 +84,7 @@
                                 <td><input type="text" name="nama" value=""></td>
                             </tr>
                             <tr>
-                                <td style="color: white">Id</td>
+                                <td style="color: white">Id Pemesanan</td>
                                 <td>:</td>
                                 <td><input type="text" name="Id" value=""></td>
                             </tr>
@@ -92,11 +92,6 @@
                                 <td style="color: white">No. KTP</td>
                                 <td>:</td>
                                 <td><input type="text" name="noKTP" value=""></td>
-                            </tr>
-                            <tr>
-                                <td style="color: white">No. Telp</td>
-                                <td>:</td>
-                                <td><input type="text" name="noTelp" value=""></td>
                             </tr>
                             <tr>
                                 <td style="color: white">Alamat</td>
@@ -154,7 +149,7 @@
                         };
 
                         var html = JSON.stringify(json, 0, 100);
-                        var Url = "http://localhost:8084/ServicePemesananGalonGas/webresources/pembeli/addNewPesanan";
+                        var Url = "http://202.94.83.190:8080/165314061_165314068_ServicePemesananGalonGas/webresources/pembeli/addNewPesanan";
                         var xhr = new XMLHttpRequest();
                         xhr.open("POST", Url, false);
                         xhr.setRequestHeader("Content-type", "application/json");

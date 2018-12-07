@@ -64,25 +64,22 @@
         </nav>
 
         <section>
-            <div class="container">
-                <center><form  method="POST"><table>
+         <center>  <form onsubmit="return make_json(this)" method="POST">
+                        <table>
                             <tr>
-                                <td style="color: white">Username</td>
+                                <td style="color: white">Username :</td>
                                 <td>:</td>
-                                <td><input type="text" name="nama" value=""></td>
+                                <td><input type="text" id="b" placeholder="Username"></td>
                             </tr>
                             <tr>
-                                <td style="color: white">Password</td>
+                                <td style="color: white">Password :</td>
                                 <td>:</td>
-                                <td><input type="text" name="Id" value=""></td>
+                                <td><input type="text" id="a" placeholder="Password"></td>
                             </tr>
-                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td><center><input type="submit" name="submit" value="Login"></center></td>
-                            </tr>
-                        </table></form></center></section>
+                        </table><button type="button" onclick="loadDoc()">Login</button>
+            
         
+
         
         <section class="page-section clearfix">
             <div class="container">
