@@ -64,93 +64,93 @@
         </nav>
 
         <section>
-         <center>  <form onsubmit="return make_json(this)" method="POST">
-                        <table>
-                            <tr>
-                                <td style="color: white">Username :</td>
-                                <td>:</td>
-                                <td><input type="text" id="b" placeholder="Username"></td>
-                            </tr>
-                            <tr>
-                                <td style="color: white">Password :</td>
-                                <td>:</td>
-                                <td><input type="text" id="a" placeholder="Password"></td>
-                            </tr>
-                        </table><button type="button" onclick="loadDoc()">Login</button>            
-        </center>
-        <script>
-            function loadDoc() {
-                var username = b.value;
-                var password= a.value;
-               
-                var url = 'http://localhost:8084/ServicePemesananGalonGas/webresources/penjual?username=' + username + '&password=' + password;
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        var user = JSON.parse(this.responseText);
-                        if(user !== null){ 
-                            window.open("Order.html", "_self");
-                        }else{
-                            alert("Login Gagal");
+            <center>  <form onsubmit="return make_json(this)" method="POST">
+                    <table>
+                        <tr>
+                            <td style="color: white">Username :</td>
+                            <td>:</td>
+                            <td><input type="text" id="b" placeholder="Username"></td>
+                        </tr>
+                        <tr>
+                            <td style="color: white">Password :</td>
+                            <td>:</td>
+                            <td><input type="text" id="a" placeholder="Password"></td>
+                        </tr>
+                    </table><button type="button" onclick="loadDoc()">Login</button>            
+            </center>
+            <script>
+                function loadDoc() {
+                    var username = b.value;
+                    var password = a.value;
+
+                    var url = 'http://localhost:8084/ServicePemesananGalonGas/webresources/penjual?username=' + username + '&password=' + password;
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var user = JSON.parse(this.responseText);
+                            if (user !== null) {
+                                window.open("Order.html", "_self");
+                            } else {
+                                alert("Login Gagal");
+                            }
+
+                            document.getElementById("demo").innerHTML =
+                                    this.responseText;
                         }
-                      
-                        document.getElementById("demo").innerHTML =
-                                this.responseText;
-                    }
-                };
-                xhttp.open("GET", url, true);
-                xhttp.send();
-            }
-            
-        </script>
-        <section class="page-section clearfix">
-            <div class="container">
-                <div class="intro">
-                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/gas and galon.jpg" alt="">
-                    <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                        <h2 class="section-heading mb-4">
-                            <span class="section-heading-upper">Layanan Cepat</span>
-                            <span class="section-heading-lower">Galon dan Gas</span>
-                        </h2>
-                        <p class="mb-3">Kebutuhan akan air minum dan gas untuk memasak membuat anda setiap hari harus membelinya. jangan khawatir 
-                            kami menyediakan layanan penjualan gas dan galon air yang siap antar ke tempat anda tanpa harus datang memesan, cukup gunakan layanan kami - dijamin cepat dan murah!
-                        </p>
-                        <div class="intro-button mx-auto">
-                            <a class="btn btn-primary btn-xl" href="#">Pesan Sekarang !</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    };
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
+                }
 
-        <section class="page-section cta">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                        <div class="cta-inner text-center rounded">
+            </script>
+            <section class="page-section clearfix">
+                <div class="container">
+                    <div class="intro">
+                        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="img/gas and galon.jpg" alt="">
+                        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
                             <h2 class="section-heading mb-4">
-                                <span class="section-heading-upper">Janji Kami</span>
-                                <span class="section-heading-lower">Untuk Kalian</span>
+                                <span class="section-heading-upper">Layanan Cepat</span>
+                                <span class="section-heading-lower">Galon dan Gas</span>
                             </h2>
-                            <p class="mb-0">Ketika Anda masuk ke website kami untuk memulai hari Anda, 
-                                kami berdedikasi untuk memberi Anda layanan yang ramah, suasana yang ramah, dan di atas segalanya,
-                                produk kami dijamin menggunakan air yang sehat dan gas yang aman serta berkualitas terbaik. Jika Anda tidak puas,
-                                beri tahu kami dan kami akan melakukan apa pun yang kami bisa untuk memperbaikinya!</p>
+                            <p class="mb-3">Kebutuhan akan air minum dan gas untuk memasak membuat anda setiap hari harus membelinya. jangan khawatir 
+                                kami menyediakan layanan penjualan gas dan galon air yang siap antar ke tempat anda tanpa harus datang memesan, cukup gunakan layanan kami - dijamin cepat dan murah!
+                            </p>
+                            <div class="intro-button mx-auto">
+                                <a class="btn btn-primary btn-xl" href="#">Pesan Sekarang !</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <footer class="footer text-faded text-center py-5">
-            <div class="container">
-                <p class="m-0 small">Copyright &copy; Galon gas 2018</p>
-            </div>
-        </footer>
+            <section class="page-section cta">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-9 mx-auto">
+                            <div class="cta-inner text-center rounded">
+                                <h2 class="section-heading mb-4">
+                                    <span class="section-heading-upper">Janji Kami</span>
+                                    <span class="section-heading-lower">Untuk Kalian</span>
+                                </h2>
+                                <p class="mb-0">Ketika Anda masuk ke website kami untuk memulai hari Anda, 
+                                    kami berdedikasi untuk memberi Anda layanan yang ramah, suasana yang ramah, dan di atas segalanya,
+                                    produk kami dijamin menggunakan air yang sehat dan gas yang aman serta berkualitas terbaik. Jika Anda tidak puas,
+                                    beri tahu kami dan kami akan melakukan apa pun yang kami bisa untuk memperbaikinya!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <footer class="footer text-faded text-center py-5">
+                <div class="container">
+                    <p class="m-0 small">Copyright &copy; Galon gas 2018</p>
+                </div>
+            </footer>
+
+            <!-- Bootstrap core JavaScript -->
+            <script src="vendor/jquery/jquery.min.js"></script>
+            <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     </body>
 
