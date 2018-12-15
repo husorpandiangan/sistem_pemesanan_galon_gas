@@ -78,3 +78,4 @@ public class PenjualResource {
         return new Gson().toJson(new UserHelper().login(username, password));
     }
 }
+

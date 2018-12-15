@@ -22,9 +22,9 @@ public class testadd {
             Date date = format.parse("12031998");
             String idPemesanan ="12345";
             String noKtp ="88888888";
-            String nama = "William";
-            String alamat = "Labuanbajo";
-            String jenisPemesanan = "Galon";
+            String nama = "Williamp";
+            String alamat = "Labuanbajo1";
+            String jenisPemesanan = "Gaas";
             String jumlahBarang = "1";
             String status = "Terkirim";
             int totalHarga = 6000;
