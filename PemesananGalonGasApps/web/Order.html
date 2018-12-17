@@ -98,7 +98,7 @@
         <script>
             var table;
             var xmlhttp = new XMLHttpRequest();
-            var url = "http://localhost:8084/ServicePemesananGalonGas/webresources/stockbarang";
+            var url = "http://202.94.83.190:8080/165314061_165314068_ServicePemesananGalonGas/webresources/stockbarang";
 
             xmlhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -132,6 +132,7 @@
                     console.log('OKKK');
 
                     $("#harga").val($(this).find("td").eq(2).html());
+                    $("#JenisPesanan").val($(this).find("td").eq(1).html());
 
                 });
             }
@@ -142,7 +143,7 @@
 
         <br>
     <center> <label style="color:white" > harga  :  </label>
-        <input type="text" id="harga" value="" onkeyup="sum()"></center>
+        <input type="text" id="harga" value="" onkeyup="sum()" readonly></center>
 
     <br>
     <section>
@@ -153,11 +154,6 @@
                             <td style="color: white">Nama</td>
                             <td>:</td>
                             <td><input type="text" name="nama" value=""></td>
-                        </tr>
-                        <tr>
-                            <td style="color: white">Id Pemesanan</td>
-                            <td>:</td>
-                            <td><input type="text" name="Id" value=""></td>
                         </tr>
                         <tr>
                             <td style="color: white">No. KTP</td>
@@ -172,10 +168,7 @@
                         <tr>
                             <td style="color: white">Jenis Pesanan</td>
                             <td>:</td>
-                            <td><select name="JenisPesanan">
-                                    <option value="gas">Gas</option>
-                                    <option value="galon">Galon</option>
-                                </select></td>
+                            <td><input type="text" id="JenisPesanan" value="" readonly></td>
                         </tr>
                         <tr>
                             <td style="color: white">Jumlah Pesanan</td>
@@ -186,11 +179,6 @@
                             <td style="color: white">Waktu Antar</td>
                             <td>:</td>
                             <td><input type="date" name="waktuantar" value=""></td>
-                        </tr>
-                        <tr>
-                            <td style="color: white">Status</td>
-                            <td>:</td>
-                            <td><input type="text" name="status" value=""></td> 
                         </tr>
                         <tr>
                             <td style="color: white">Total Harga</td>
@@ -208,14 +196,12 @@
             <script>
                 function make_json(table) {
                     var json = {
-                        "idPemesanan": table.Id.value,
                         "noKtp": table.noKTP.value,
                         "nama": table.nama.value,
                         "alamat": table.alamat.value,
                         "namaBarang": table.JenisPesanan.value,
                         "jumlahBarang": table.jumpesanan.value,
                         "waktuAntar": table.waktuantar.value,
-                        "status": table.status.value,
                         "totalHarga": table.totalHarga.value
                     };
 

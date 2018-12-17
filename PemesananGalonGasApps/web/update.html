@@ -49,20 +49,31 @@ th {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item active px-lg-4">
+                        <li class="nav-item px-lg-4">
                             <a class="nav-link text-uppercase text-expanded" href="pemilik.html">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
+                       
                         <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="about.html">About</a>
+                            <a class="nav-link text-uppercase text-expanded" href="products2.html">Products</a>
                         </li>
                         <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="products.html">Products</a>
+                            <a class="nav-link text-uppercase text-expanded" href="store2.html">Store</a>
                         </li>
+                      
+                        <li class="nav-item active px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="update.html">Update</a>
+                        </li>
+                        
                         <li class="nav-item px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="store.html">Store</a>
+                            <a class="nav-link text-uppercase text-expanded" href="laporan.html">Laporan</a>
                         </li>
+                        
+                        <li class="nav-item px-lg-4">
+                            <a class="nav-link text-uppercase text-expanded" href="index.html">Logout</a>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -120,13 +131,8 @@ th {
                             console.log('OKKK');
                             $("#nama").val($(this).find("td").eq(2).html());
                             $("#Id").val($(this).find("td").eq(0).html());
-                            $("#noKTP").val($(this).find("td").eq(1).html());
-                            $("#alamat").val($(this).find("td").eq(3).html());
-                            $("#JenisPesanan").val($(this).find("td").eq(4).html());
-                            $("#waktuantar").val($(this).find("td").eq(6).html());
                             $("#status").val($(this).find("td").eq(7).html());
-                            $("#totalHarga").val($(this).find("td").eq(8).html());
-                            $("#jumpesanan").val($(this).find("td").eq(5).html());
+
 
 
                         });
@@ -151,39 +157,9 @@ th {
                                 <td><input type="text" id="Id" value="" readonly></td>
                             </tr>
                             <tr>
-                                <td style="color: white">No. KTP</td>
-                                <td>:</td>
-                                <td><input type="text" id="noKTP" value="" readonly></td>
-                            </tr>
-                            <tr>
-                                <td style="color: white">Alamat</td>
-                                <td>:</td>
-                                <td><input type="text" id="alamat" value="" readonly></td>
-                            </tr>
-                            <tr>
-                                <td style="color: white">Jenis Pesanan</td>
-                                <td>:</td>
-                                <td><input type="text" id="JenisPesanan" value="" readonly></td>
-                            </tr>
-                            <tr>
-                                <td style="color: white">Jumlah Pesanan</td>
-                                <td>:</td>
-                                <td><input type="text" id="jumpesanan" value="" readonly></td>
-                            </tr>
-                            <tr>
-                                <td style="color: white">Waktu Antar</td>
-                                <td>:</td>
-                                <td><input type="text" id="waktuantar" value=""></td>
-                            </tr>
-                            <tr>
                                 <td style="color: white">Status</td>
                                 <td>:</td>
                                 <td><input type="text" id="status" value=""></td> 
-                            </tr>
-                            <tr>
-                                <td style="color: white">Total Harga</td>
-                                <td>:</td>
-                                <td><input type="text" id="totalHarga" value="" readonly></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -197,18 +173,11 @@ th {
                     function make_json(table) {
                         var json = {
                             "idPemesanan": table.Id.value,
-                            "noKtp": table.noKTP.value,
-                            "nama": table.nama.value,
-                            "alamat": table.alamat.value,
-                            "namaBarang": table.JenisPesanan.value,
-                            "jumlahBarang": table.jumpesanan.value,
-                            "waktuAntar": table.waktuantar.value,
-                            "status": table.status.value,
-                            "totalHarga": table.totalHarga.value
+                            "status": table.status.value
                         };
 
                         var html = JSON.stringify(json, 0, 100);
-                        var Url = "http://202.94.83.190:8080/165314061_165314068_ServicePemesananGalonGas/webresources/pembeli/addNewPesanan";
+                        var Url = "http://202.94.83.190:8080/165314061_165314068_ServicePemesananGalonGas/webresources/penjual/update";
                         var xhr = new XMLHttpRequest();
                         xhr.open("POST", Url, false);
                         xhr.setRequestHeader("Content-type", "application/json");
