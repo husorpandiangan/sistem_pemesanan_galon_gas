@@ -50,7 +50,7 @@ th {
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item active px-lg-4">
-                            <a class="nav-link text-uppercase text-expanded" href="index.html">Home
+                            <a class="nav-link text-uppercase text-expanded" href="pemilik.html">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -69,12 +69,11 @@ th {
         </nav>
         <br>
         <br>
-                <br>
-                       <div id="id01"></div>
+                <div id="id01"></div>
                 <script>
                     var table;
                     var xmlhttp = new XMLHttpRequest();
-                    var url = "http://localhost:8084/ServicePemesananGalonGas/webresources/pembeli/bacalaporan2";
+                    var url = "http://202.94.83.190:8080/165314061_165314068_ServicePemesananGalonGas/webresources/pembeli";
 
                     xmlhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
@@ -115,11 +114,112 @@ th {
 
                         out += "</table>";
                         document.getElementById("id01").innerHTML = out;
+                        table = document.getElementById('table');
+                        console.log(table.rows.length);
+                        $('#table tr').on('click', function () {
+                            console.log('OKKK');
+                            $("#nama").val($(this).find("td").eq(2).html());
+                            $("#Id").val($(this).find("td").eq(0).html());
+                            $("#noKTP").val($(this).find("td").eq(1).html());
+                            $("#alamat").val($(this).find("td").eq(3).html());
+                            $("#JenisPesanan").val($(this).find("td").eq(4).html());
+                            $("#waktuantar").val($(this).find("td").eq(6).html());
+                            $("#status").val($(this).find("td").eq(7).html());
+                            $("#totalHarga").val($(this).find("td").eq(8).html());
+                            $("#jumpesanan").val($(this).find("td").eq(5).html());
+
+
+                        });
                     }
 
 
                 </script>
-<button id="export">download</button>
+                <br>
+                <br>
+         <section>
+            <div class="container">
+                <center><form onsubmit="return make_json(this)" method="POST">
+                        <table>
+                            <tr>
+                                <td style="color: white">Nama</td>
+                                <td>:</td>
+                                <td><input type="text" id="nama" value="" readonly></td>
+                            </tr>
+                            <tr>
+                                <td style="color: white">Id Pemesanan</td>
+                                <td>:</td>
+                                <td><input type="text" id="Id" value="" readonly></td>
+                            </tr>
+                            <tr>
+                                <td style="color: white">No. KTP</td>
+                                <td>:</td>
+                                <td><input type="text" id="noKTP" value="" readonly></td>
+                            </tr>
+                            <tr>
+                                <td style="color: white">Alamat</td>
+                                <td>:</td>
+                                <td><input type="text" id="alamat" value="" readonly></td>
+                            </tr>
+                            <tr>
+                                <td style="color: white">Jenis Pesanan</td>
+                                <td>:</td>
+                                <td><input type="text" id="JenisPesanan" value="" readonly></td>
+                            </tr>
+                            <tr>
+                                <td style="color: white">Jumlah Pesanan</td>
+                                <td>:</td>
+                                <td><input type="text" id="jumpesanan" value="" readonly></td>
+                            </tr>
+                            <tr>
+                                <td style="color: white">Waktu Antar</td>
+                                <td>:</td>
+                                <td><input type="text" id="waktuantar" value=""></td>
+                            </tr>
+                            <tr>
+                                <td style="color: white">Status</td>
+                                <td>:</td>
+                                <td><input type="text" id="status" value=""></td> 
+                            </tr>
+                            <tr>
+                                <td style="color: white">Total Harga</td>
+                                <td>:</td>
+                                <td><input type="text" id="totalHarga" value="" readonly></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td><center><button type="submit" class="Pesan">Uptade</button></center></td>
+                            </tr>
+                        </table></form></center>
+                <pre style="color: white" id="output">
+                </pre>
+                <script>
+                    function make_json(table) {
+                        var json = {
+                            "idPemesanan": table.Id.value,
+                            "noKtp": table.noKTP.value,
+                            "nama": table.nama.value,
+                            "alamat": table.alamat.value,
+                            "namaBarang": table.JenisPesanan.value,
+                            "jumlahBarang": table.jumpesanan.value,
+                            "waktuAntar": table.waktuantar.value,
+                            "status": table.status.value,
+                            "totalHarga": table.totalHarga.value
+                        };
+
+                        var html = JSON.stringify(json, 0, 100);
+                        var Url = "http://202.94.83.190:8080/165314061_165314068_ServicePemesananGalonGas/webresources/pembeli/addNewPesanan";
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("POST", Url, false);
+                        xhr.setRequestHeader("Content-type", "application/json");
+                        xhr.send(html);
+                        document.getElementById("output").innerHTML = html;
+                        return false;
+                    }
+                </script>
+
+            </div></section>
+
         <section class="page-section cta">
             <div class="container">
                 <div class="row">
@@ -145,43 +245,7 @@ th {
         </footer>
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script>
-     window.export.onclick = function() {
- 
-   if (!window.Blob) {
-      alert('Your legacy browser does not support this action.');
-      return;
-   }
 
-   var html, link, blob, url, css;
-   
-   // EU A4 use: size: 841.95pt 595.35pt;
-   // US Letter use: size:11.0in 8.5in;
-   
-   css = (
-     '<style>' +
-     '@page WordSection1{size: 841.95pt 595.35pt;mso-page-orientation: landscape;}' +
-     'div.WordSection1 {page: WordSection1;}' +
-     'table{border-collapse:collapse;}td{border:1px gray solid;width:5em;padding:2px;}'+
-     '</style>'
-   );
-   
-   html = window.id01.innerHTML;
-   blob = new Blob(['\ufeff', css + html], {
-     type: 'application/msword'
-   });
-   url = URL.createObjectURL(blob);
-   link = document.createElement('A');
-   link.href = url;
-   // Set default file name. 
-   // Word will append file extension - do not add an extension here.
-   link.download = 'Document';   
-   document.body.appendChild(link);
-   if (navigator.msSaveOrOpenBlob ) navigator.msSaveOrOpenBlob( blob, 'Document.doc'); // IE10-11
-   		else link.click();  // other browsers
-   document.body.removeChild(link);
- };
-    </script>
     </body>
 
 </html>
