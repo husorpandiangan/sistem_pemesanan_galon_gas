@@ -65,7 +65,28 @@ public class PembeliResource {
                 .build();
     }
 
-    
+     @GET
+   @Path("bacalaporan2")
+      @Produces(MediaType.APPLICATION_JSON)
+    public Response getlaporan2() {
+        PesananHelper u = new PesananHelper();
+        Gson gson = new Gson();
+        return Response.status(Response.Status.OK)
+                .entity(gson.toJson(u.getAllLaporan2()))
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods",
+                        "GET,POST,HEAD,OPTIONS,PUT")
+                .header("Access-Control-Allow-Headers",
+                        "Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers")
+                .header("Access-Exposed-Headers",
+                        "Access-Control-Allow-Origin,Access-Control-Allow-Credentials")
+                .header("Access-Support-Credentials",
+                        "true")
+                .header("Access-Control-Max-Age", "20")
+                .header("Access-Preflight-Maxage", "20")
+                .build();
+    }
+
 
     /**
      * PUT method for updating or creating an instance of PenjualResource
@@ -94,6 +115,8 @@ public Response AddNewPasien(String data){
             pesan.getTotalHarga());
     return Response.status(200).entity(pesan).build();    
     }
+
+
 }
     
 

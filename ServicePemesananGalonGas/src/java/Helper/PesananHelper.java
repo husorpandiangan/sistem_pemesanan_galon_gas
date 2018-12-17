@@ -21,7 +21,6 @@ public class PesananHelper {
 
     public PesananHelper() {
     }
-
     public List<Pesanan> getAllLaporan() {
         List<Pesanan> result = null;
         Session session = NewHibernateUtil.getSessionFactory().openSession();
@@ -32,6 +31,15 @@ public class PesananHelper {
         return result;
     }
 
+        public List<Pesanan> getAllLaporan2() {
+        List<Pesanan> result = null;
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        String query = "from Pesanan p where status='terkirim'";
+        Query q = session.createQuery(query);
+        result = q.list();
+        session.close();
+        return result;
+    }
     public void addNewPesanan(
             String idPemesanan,
             String noKtp,
