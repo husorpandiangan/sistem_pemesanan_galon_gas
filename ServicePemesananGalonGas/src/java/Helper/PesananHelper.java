@@ -10,7 +10,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import pojos.Pesanan;
+import pojos.Pesananfix;
 import util.NewHibernateUtil;
 
 /**
@@ -21,27 +21,26 @@ public class PesananHelper {
 
     public PesananHelper() {
     }
-    public List<Pesanan> getAllLaporan() {
-        List<Pesanan> result = null;
+    public List<Pesananfix> getAllLaporan() {
+        List<Pesananfix> result = null;
         Session session = NewHibernateUtil.getSessionFactory().openSession();
-        String query = "from Pesanan p";
+        String query = "from Pesananfix p";
         Query q = session.createQuery(query);
         result = q.list();
         session.close();
         return result;
     }
 
-        public List<Pesanan> getAllLaporan2() {
-        List<Pesanan> result = null;
+        public List<Pesananfix> getAllLaporan2() {
+        List<Pesananfix> result = null;
         Session session = NewHibernateUtil.getSessionFactory().openSession();
-        String query = "from Pesanan p where status='terkirim'";
+        String query = "from Pesananfix p where status='terkirim'";
         Query q = session.createQuery(query);
         result = q.list();
         session.close();
         return result;
     }
     public void addNewPesanan(
-            String idPemesanan,
             String noKtp,
             String nama,
             String alamat,
@@ -53,15 +52,30 @@ public class PesananHelper {
     ) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
-        Pesanan pesanan = new Pesanan(idPemesanan, 
+        Pesananfix pesanan = new Pesananfix( 
                 noKtp, 
                 nama, 
                 alamat, 
                 namaBarang, 
                 jumlahBarang, 
                 waktuAntar, 
-                status, 
+                status="belum terkirim", 
                 totalHarga);
+        session.saveOrUpdate(pesanan);
+        tx.commit();
+        session.close();
+    }
+    
+    public void update(
+            Integer idPemesanan,
+            String status
+    
+    ) 
+        {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        Pesananfix pesanan=(Pesananfix) session.get(Pesananfix.class,idPemesanan);
+        pesanan.setStatus(status);
         session.saveOrUpdate(pesanan);
         tx.commit();
         session.close();

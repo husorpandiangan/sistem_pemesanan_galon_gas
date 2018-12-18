@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Helper;
 
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import pojos.Pesanan;
+import pojos.Pesananfix;
 import pojos.Stockbarang;
 import util.NewHibernateUtil;
 

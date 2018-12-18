@@ -29,7 +29,7 @@ public class testadd {
             String status = "Terkirim";
             int totalHarga = 6000;
             PesananHelper helper = new PesananHelper();
-            helper.addNewPesanan(idPemesanan, noKtp, nama, alamat, jenisPemesanan, jumlahBarang, date, status, totalHarga);
+            helper.addNewPesanan(noKtp, nama, alamat, jenisPemesanan, jumlahBarang, date, status, totalHarga);
         } catch (ParseException ex) {
 
         }

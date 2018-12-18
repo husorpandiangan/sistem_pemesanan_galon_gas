@@ -8,7 +8,7 @@ package Test;
 import Helper.PesananHelper;
 import com.google.gson.Gson;
 import java.util.List;
-import pojos.Pesanan;
+import pojos.Pesananfix;
 
 /**
  *
@@ -17,7 +17,7 @@ import pojos.Pesanan;
 public class testbacalaporan {
     public static void main(String[] args) {
         PesananHelper test=new PesananHelper();
-        List<Pesanan> list = test.getAllLaporan();
+        List<Pesananfix> list = test.getAllLaporan();
         Gson gson=new Gson();
         String json=gson.toJson(list);
         System.out.println(json);

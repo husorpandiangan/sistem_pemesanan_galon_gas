@@ -5,6 +5,7 @@
  */
 package services;
 
+import Helper.PesananHelper;
 import Helper.UserHelper;
 import com.google.gson.Gson;
 import javax.ws.rs.core.Context;
@@ -12,11 +13,13 @@ import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import pojos.Pesananfix;
 
 /**
  * REST Web Service
@@ -72,10 +75,22 @@ public class PenjualResource {
     }
 
     @GET
-        @Path("login")
-        @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-        public String getJson(@QueryParam("username") String username, @QueryParam("password") String password) {
+    @Path("login")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getJson(@QueryParam("username") String username, @QueryParam("password") String password) {
         return new Gson().toJson(new UserHelper().login(username, password));
+    }
+    
+    @POST
+@Path("update")
+ @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+public Response update(String data){
+    Gson gson=new Gson();
+    Pesananfix pesan= gson.fromJson(data,Pesananfix.class);
+    PesananHelper helper =new PesananHelper();
+    helper.update(pesan.getIdPemesanan(), 
+            pesan.getStatus());
+    return Response.status(200).entity(pesan).build();    
     }
 }
 

@@ -20,7 +20,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import pojos.Pesanan;
+import pojos.Pesananfix;
 
 /**
  * REST Web Service
@@ -102,9 +102,9 @@ public class PembeliResource {
  @Consumes(javax.ws.rs.core.MediaType.APPLICATION_JSON)
 public Response AddNewPasien(String data){
     Gson gson=new Gson();
-    Pesanan pesan= gson.fromJson(data,Pesanan.class);
+    Pesananfix pesan= gson.fromJson(data,Pesananfix.class);
     PesananHelper helper =new PesananHelper();
-    helper.addNewPesanan(pesan.getIdPemesanan(), 
+    helper.addNewPesanan( 
             pesan.getNoKtp(),
             pesan.getNama(),
             pesan.getAlamat(),
